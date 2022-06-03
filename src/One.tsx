@@ -1,17 +1,35 @@
 import { useRecoilState } from 'recoil'
-import { NameAtom, DateAtom } from './Atoms/EventDetails/BasicInfo'
+import {
+  NameAtom,
+  DateAtom,
+  AddressAtom,
+  EmailAtom,
+  PhoneAtom,
+} from './Atoms/EventDetails/BasicInfo'
 import { useState } from 'react'
 
 function One() {
-  const [eventName, setEventName] = useRecoilState(NameAtom)
-  const [newEventName, setNewEventName] = useState('')
+  const [address, setEventAddress] = useRecoilState(AddressAtom)
+  const [newAddress, setNewEventAddress] = useState('')
 
-  const [eventDate, setEventDate] = useRecoilState<any>(DateAtom)
-  const [newEventDate, setNewEventDate] = useState('')
+  const [date, setEventDate] = useRecoilState<any>(DateAtom)
+  const [newDate, setNewEventDate] = useState('')
 
-  const updateInfo = () => {
-    setEventName(newEventName)
-    setEventDate(newEventDate)
+  const [email, setEventEmail] = useRecoilState(EmailAtom)
+  const [newEmail, setNewEventEmail] = useState('')
+
+  const [name, setEventName] = useRecoilState(NameAtom)
+  const [newName, setNewEventName] = useState('')
+
+  const [phone, setEventPhone] = useRecoilState(PhoneAtom)
+  const [newPhone, setNewEventPhone] = useState('')
+
+  const updateEventDetails = () => {
+    setEventAddress(newAddress)
+    setEventDate(newDate)
+    setEventEmail(newEmail)
+    setEventName(newName)
+    setEventPhone(newPhone)
   }
 
   return (
@@ -23,11 +41,23 @@ function One() {
         <input onChange={(e) => setNewEventName(e.target.value)}></input>
       </h3>
       <h3>
-        Event Phone
+        Event Date
         <input onChange={(e) => setNewEventDate(e.target.value)}></input>
       </h3>
+      <h3>
+        Event Address
+        <input onChange={(e) => setNewEventAddress(e.target.value)}></input>
+      </h3>
+      <h3>
+        Event Phone
+        <input onChange={(e) => setNewEventPhone(e.target.value)}></input>
+      </h3>
+      <h3>
+        Event Email
+        <input onChange={(e) => setNewEventEmail(e.target.value)}></input>
+      </h3>
 
-      <button type='submit' onClick={updateInfo}>
+      <button type='submit' onClick={updateEventDetails}>
         Save Event Details
       </button>
     </div>
