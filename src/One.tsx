@@ -9,7 +9,7 @@ import {
 import { useState } from 'react'
 
 function One() {
-  const [{ zip, state, street }, setEventAddress] = useRecoilState(AddressAtom)
+  const [eventAddress, setEventAddress] = useRecoilState(AddressAtom)
   const [newAddress, setNewEventAddress] = useState<string | any>('')
 
   const [date, setEventDate] = useRecoilState<any>(DateAtom)
@@ -25,6 +25,10 @@ function One() {
   const [newPhone, setNewEventPhone] = useState('')
 
   const updateEventDetails = () => {
+    // setEventAddress(newAddress.zipCode)
+    // setEventAddress(newAddress.state)
+    // setEventAddress(newAddress.street)
+    // setEventAddress(newAddress.city)
     setEventAddress(newAddress)
     setEventDate(newDate)
     setEventEmail(newEmail)
@@ -58,7 +62,7 @@ function One() {
             placeholder='Name of Location'
           ></input>
         </h2>
-        <h2>
+        {/* <h2>
           Street{' '}
           <input
             onChange={(e) => setNewEventAddress({ street: e.target.value })}
@@ -66,7 +70,7 @@ function One() {
           ></input>
         </h2>
         <h2>
-          City{' '}
+          City
           <input
             onChange={(e) => setNewEventAddress({ city: e.target.value })}
             placeholder='City Location'
@@ -82,10 +86,10 @@ function One() {
         <h2>
           Zip{' '}
           <input
-            onChange={(e) => setNewEventAddress({ zip: e.target.value })}
-            placeholder='Zip of Location'
+            onChange={(e) => setNewEventAddress({ zipCode: e.target.value })}
+            placeholder='zipCode of Location'
           ></input>
-        </h2>
+        </h2> */}
       </div>
       <h3>
         Event Phone
