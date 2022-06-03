@@ -20,9 +20,15 @@ function Two() {
     >
       <h3>Name:{eventName}</h3>
       <h3>Date:{eventDate}</h3>
-      <h3>Address:{eventAddress}</h3>
+
       <h3>Phone:{eventPhone}</h3>
       <h3>Email:{eventEmail}</h3>
+      <h3>Address of Event</h3>
+      <h4>Name of Location:{eventAddress.locationName}</h4>
+      <h4>State:{eventAddress.state}</h4>
+      <h4>Street:{eventAddress.street}</h4>
+      <h4>City:{eventAddress.city}</h4>
+      <h4>Zip:{eventAddress.zip}</h4>
     </div>
   )
 }

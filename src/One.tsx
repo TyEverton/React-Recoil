@@ -9,8 +9,8 @@ import {
 import { useState } from 'react'
 
 function One() {
-  const [address, setEventAddress] = useRecoilState(AddressAtom)
-  const [newAddress, setNewEventAddress] = useState('')
+  const [{ zip, state, street }, setEventAddress] = useRecoilState(AddressAtom)
+  const [newAddress, setNewEventAddress] = useState<string | any>('')
 
   const [date, setEventDate] = useRecoilState<any>(DateAtom)
   const [newDate, setNewEventDate] = useState('')
@@ -44,10 +44,49 @@ function One() {
         Event Date
         <input onChange={(e) => setNewEventDate(e.target.value)}></input>
       </h3>
-      <h3>
-        Event Address
-        <input onChange={(e) => setNewEventAddress(e.target.value)}></input>
-      </h3>
+      <div>
+        <h3>
+          Event Address
+          <input onChange={(e) => setNewEventAddress(e.target.value)}></input>
+        </h3>
+        <h2>
+          Name of Location
+          <input
+            onChange={(e) =>
+              setNewEventAddress({ locationName: e.target.value })
+            }
+            placeholder='Name of Location'
+          ></input>
+        </h2>
+        <h2>
+          Street{' '}
+          <input
+            onChange={(e) => setNewEventAddress({ street: e.target.value })}
+            placeholder='Street Location'
+          ></input>
+        </h2>
+        <h2>
+          City{' '}
+          <input
+            onChange={(e) => setNewEventAddress({ city: e.target.value })}
+            placeholder='City Location'
+          ></input>
+        </h2>
+        <h2>
+          State{' '}
+          <input
+            onChange={(e) => setNewEventAddress({ state: e.target.value })}
+            placeholder='State of Location'
+          ></input>
+        </h2>
+        <h2>
+          Zip{' '}
+          <input
+            onChange={(e) => setNewEventAddress({ zip: e.target.value })}
+            placeholder='Zip of Location'
+          ></input>
+        </h2>
+      </div>
       <h3>
         Event Phone
         <input onChange={(e) => setNewEventPhone(e.target.value)}></input>

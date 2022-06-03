@@ -3,7 +3,13 @@ import { atom } from 'recoil'
 
 export const AddressAtom = atom({
   key: 'eventAddress',
-  default: '',
+  default: {
+    locationName: '',
+    zip: '',
+    state: '',
+    street: '',
+    city: '',
+  },
 })
 
 export const EmailAtom = atom({
